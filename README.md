@@ -2,6 +2,37 @@
 
 Este projeto tem como objetivo classificar áudios de **ventiladores industriais** em normais e anormais com base em características extraídas dos sinais de áudio. Utilizamos técnicas de extração de características, como coeficientes MFCC, e um modelo Random Forest para a classificação. O MIMII Dataset foi utilizado como base de dados para os áudios dos ventiladores, com informações de condições normais e anormais das mesmas.
 
+## Estrutura de Pastas
+
+A estrutura de pastas deve ser configurada da seguinte forma:
+
+```
+dataset/
+│
+├── fan/               # Diretório principal para ventiladores (fan)
+│   ├── id_00/         # Subdiretório para o modelo id_00 do ventilador
+│   │   ├── normal/    # Subdiretório para arquivos normais
+│   │   │   ├── 00000001.wav
+│   │   │   ├── 00000002.wav
+│   │   │   └── ...
+│   │   ├── abnormal/  # Subdiretório para arquivos anormais
+│   │   │   ├── 00000001.wav
+│   │   │   ├── 00000002.wav
+│   │   │   └── ...
+│   ├── id_02/         # Subdiretório para o modelo id_02 do ventilador
+│   │   ├── normal/    
+│   │   ├── abnormal/  
+│   ├── id_04/         # Subdiretório para o modelo id_04 do ventilador
+│   │   ├── normal/    
+│   │   ├── abnormal/  
+│   ├── id_06/         # Subdiretório para o modelo id_06 do ventilador
+│   │   ├── normal/    
+│   │   ├── abnormal/  
+│
+└── (outros tipos de máquinas, se necessário)
+```
+Os arquivos de áudio dentro dos subdiretórios "normal" e "abnormal" devem seguir o formato `00000001.wav`, `00000002.wav`, etc. Esse layout é crucial para que o código consiga percorrer as pastas e processar os arquivos adequadamente.
+
 ## Fundamentação Teórica
 
 ### MFCC (Mel-frequency Cepstral Coefficients)
@@ -15,6 +46,16 @@ O algoritmo Random Forest é um método de aprendizado supervisionado que combin
 ### MIMII Dataset
 
 O **MIMII Dataset** foi usado neste projeto como fonte de dados. Ele contém 26.092 segmentos de som de condições normais e 6.065 de condições anômalas para diferentes tipos de máquinas, incluindo ventiladores industriais. Entre as causas de falhas registradas em ventiladores estão o desbalanceamento, mudanças de voltagem e obstruções. O dataset simula cenários reais de fábrica, misturando sons de máquinas com ruídos de fundo gravados em diferentes fábricas (PUROHIT et al., 2019).
+
+As principais causas de anormalidades nos ventiladores industriais incluem:
+
+1. **Desbalanceamento**: Desalinhamento ou desbalanceamento das partes móveis do ventilador, o que pode gerar ruídos e vibrações incomuns.
+2. **Mudanças de voltagem**: Alterações na tensão elétrica que alimenta o ventilador, causando variações no seu funcionamento e no som gerado.
+3. **Obstruções**: Objetos ou detritos que bloqueiam o fluxo de ar ou interferem nas hélices do ventilador, provocando ruídos adicionais e anormais.
+4. **Desgaste mecânico**: Com o tempo, as peças do ventilador podem se desgastar, levando a problemas como folgas e atritos indesejados, que alteram o comportamento acústico.
+
+Essas causas são comuns em ambientes industriais e afetam diretamente o desempenho dos ventiladores. A detecção de anomalias acústicas torna-se uma ferramenta essencial para a **manutenção preditiva**, como abordado no **MIMII Dataset**.
+
 
 Link para o dataset: [MIMII Dataset](https://zenodo.org/record/3384388)
 
