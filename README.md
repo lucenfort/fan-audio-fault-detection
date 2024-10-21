@@ -51,7 +51,7 @@ Após o treinamento, obtivemos os seguintes resultados:
 
 #### Matriz de Confusão
 
-![Matriz de Confusão](imagens/confusion_matrix.png)
+![Matriz de Confusão](confusion_matrix.png)
 
 A matriz de confusão acima mostra os resultados obtidos com o modelo. Foram feitas as seguintes observações:
 - **Verdadeiros Positivos (Normal)**: 809
@@ -61,7 +61,7 @@ A matriz de confusão acima mostra os resultados obtidos com o modelo. Foram fei
 
 #### Curva ROC e AUC
 
-![Curva ROC](imagens/roc_curve.png)
+![Curva ROC](roc_curve.png)
 
 A curva ROC apresentada indica a performance do modelo ao longo de diferentes limiares de decisão. O valor **AUC** (Área Sob a Curva) foi de **0.99653**, o que indica uma excelente performance do modelo na distinção entre áudios normais e anormais.
 
