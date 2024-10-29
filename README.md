@@ -28,8 +28,6 @@ dataset/
 │   ├── id_06/         # Subdiretório para o modelo id_06 do ventilador
 │   │   ├── normal/    
 │   │   ├── abnormal/  
-│
-└── (outros tipos de máquinas, se necessário)
 ```
 Os arquivos de áudio dentro dos subdiretórios "normal" e "abnormal" devem seguir o formato `00000001.wav`, `00000002.wav`, etc. Esse layout é crucial para que o código consiga percorrer as pastas e processar os arquivos adequadamente.
 
