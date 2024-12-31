@@ -45,6 +45,8 @@ O algoritmo Random Forest é um método de aprendizado supervisionado que combin
 
 O **MIMII Dataset** foi usado neste projeto como fonte de dados. Ele contém 26.092 segmentos de som de condições normais e 6.065 de condições anômalas para diferentes tipos de máquinas, incluindo ventiladores industriais. Entre as causas de falhas registradas em ventiladores estão o desbalanceamento, mudanças de voltagem e obstruções. O dataset simula cenários reais de fábrica, misturando sons de máquinas com ruídos de fundo gravados em diferentes fábricas (PUROHIT et al., 2019).
 
+Os áudios utilizados foram extraídos do MIMII Dataset, especificamente do subset referente a ventiladores operando em condições normais e anormais com níveis de ruído de 0dB.  
+
 As principais causas de anormalidades nos ventiladores industriais incluem:
 
 1. **Desbalanceamento**: Desalinhamento ou desbalanceamento das partes móveis do ventilador, o que pode gerar ruídos e vibrações incomuns.
