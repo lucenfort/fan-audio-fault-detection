@@ -99,21 +99,6 @@ Dataset de sons industriais com condições normais e anômalas, usado para simu
 
 Resultados típicos: F1-Score > 0.90, AUC > 0.95.
 
-## 🤝 Contribuição
-
-Contribuições são bem-vindas! Abra issues ou pull requests.
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT.
-
-## 📚 Referências
-
-- Davis, S., & Mermelstein, P. (1980). Comparison of parametric representations for monosyllabic word recognition in continuously spoken sentences. IEEE Transactions on Acoustics, Speech, and Signal Processing.
-- Breiman, L. (2001). Random Forests. Machine Learning.
-- Purohit, H., et al. (2019). MIMII Dataset: Sound Dataset for Malfunctioning Industrial Machine Investigation and Inspection. arXiv preprint.
-- Fawcett, T. (2006). An introduction to ROC analysis. Pattern Recognition Letters.
-
 Após o treinamento, obtivemos os seguintes resultados:
 
 #### Acurácia do Modelo
