@@ -76,7 +76,7 @@ data/
    pip install -r requirements.txt
    ```
 
-3. Baixe o dataset MIMII e coloque na pasta `data/`.
+3. Baixe o dataset MIMII e coloque na pasta `data/`. O dataset está disponível em: [MIMII Dataset](https://zenodo.org/record/3384388)
 
 ### Execução
 Execute o script principal:
