@@ -112,41 +112,7 @@ Este projeto está sob a licença MIT.
 - Davis, S., & Mermelstein, P. (1980). Comparison of parametric representations for monosyllabic word recognition in continuously spoken sentences. IEEE Transactions on Acoustics, Speech, and Signal Processing.
 - Breiman, L. (2001). Random Forests. Machine Learning.
 - Purohit, H., et al. (2019). MIMII Dataset: Sound Dataset for Malfunctioning Industrial Machine Investigation and Inspection. arXiv preprint.
-
-1. **Desbalanceamento**: Desalinhamento ou desbalanceamento das partes móveis do ventilador, o que pode gerar ruídos e vibrações incomuns.
-2. **Mudanças de voltagem**: Alterações na tensão elétrica que alimenta o ventilador, causando variações no seu funcionamento e no som gerado.
-3. **Obstruções**: Objetos ou detritos que bloqueiam o fluxo de ar ou interferem nas hélices do ventilador, provocando ruídos adicionais e anormais.
-4. **Desgaste mecânico**: Com o tempo, as peças do ventilador podem se desgastar, levando a problemas como folgas e atritos indesejados, que alteram o comportamento acústico.
-
-Essas causas são comuns em ambientes industriais e afetam diretamente o desempenho dos ventiladores. A detecção de anomalias acústicas torna-se uma ferramenta essencial para a **manutenção preditiva**, como abordado no **MIMII Dataset**.
-
-
-Link para o dataset: [MIMII Dataset](https://zenodo.org/record/3384388)
-
-### Avaliação do Modelo
-
-A avaliação do modelo foi feita utilizando métricas como:
-- **Acurácia**: Percentual de predições corretas.
-- **Matriz de Confusão**: Relaciona predições corretas e incorretas.
-- **Curva ROC e AUC**: Representa a taxa de verdadeiros positivos contra a taxa de falsos positivos. A área sob a curva (AUC) é uma métrica importante para a avaliação de modelos de classificação binária (FAWCETT, 2006).
-
-## Metodologia
-
-### Coleta e Extração de Dados
-
-Os dados foram coletados do MIMII Dataset, com áudios de ventiladores classificados como normais e anormais. As características dos áudios foram extraídas usando coeficientes MFCC, resultando em uma representação concisa dos sinais.
-
-### Divisão dos Dados
-
-Os dados foram divididos em dois conjuntos:
-- **Treinamento**: 80% dos dados, usados para treinar o modelo.
-- **Teste**: 20% dos dados, usados para validar o modelo.
-
-### Treinamento do Modelo
-
-Utilizamos o modelo Random Forest com 100 árvores de decisão para a classificação. O modelo foi treinado usando as características MFCC dos áudios. O desempenho foi avaliado com base em acurácia, matriz de confusão e curva ROC/AUC.
-
-### Resultados
+- Fawcett, T. (2006). An introduction to ROC analysis. Pattern Recognition Letters.
 
 Após o treinamento, obtivemos os seguintes resultados:
 
