@@ -125,7 +125,16 @@ A curva ROC apresentada indica a performance do modelo ao longo de diferentes li
 
 O modelo Random Forest demonstrou eficácia na classificação de áudios normais e anormais de ventiladores industriais. Com uma acurácia de 96,49% e uma AUC de 0,99653, o modelo mostrou-se robusto. No entanto, melhorias futuras podem incluir o aumento de dados anômalos e a utilização de redes neurais convolucionais (CNNs) para uma análise mais profunda dos sinais.
 
-## Referências
+## 📄 Licença
+
+Este projeto está sob a licença MIT.
+
+## 📚 Referências
+
+- Davis, S., & Mermelstein, P. (1980). Comparison of parametric representations for monosyllabic word recognition in continuously spoken sentences. IEEE Transactions on Acoustics, Speech, and Signal Processing.
+- Breiman, L. (2001). Random Forests. Machine Learning.
+- Purohit, H., et al. (2019). MIMII Dataset: Sound Dataset for Malfunctioning Industrial Machine Investigation and Inspection. arXiv preprint.
+- Fawcett, T. (2006). An introduction to ROC analysis. Pattern Recognition Letters.
 
 - DAVIS, S. B.; MERMELSTEIN, P. Comparison of parametric representations for monosyllabic word recognition in continuously spoken sentences. IEEE Transactions on Acoustics, Speech, and Signal Processing, v. 28, n. 4, p. 357–366, 1980.
 - BREIMAN, L. Random forests. Machine Learning, v. 45, n. 1, p. 5–32, 2001.
