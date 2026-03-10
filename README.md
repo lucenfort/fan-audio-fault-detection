@@ -25,7 +25,7 @@ Sistemas tradicionais de detecção de falhas em equipamentos industriais podem 
 
 - **Linguagem:** Python 3.x
 - **Bibliotecas:** Librosa (extração de MFCC), Scikit-Learn (Random Forest), Pandas, NumPy, Matplotlib, Seaborn
-- **Dataset:** MIMII Dataset (subconjunto de ventiladores)
+- **Dataset:** MIMII Dataset (subconjunto de ventiladores) - Fornecido por Purohit et al. (2019) sob licença Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).
 
 ## 📁 Estrutura do Projeto
 
