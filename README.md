@@ -4,6 +4,19 @@
 
 Este projeto utiliza aprendizado de máquina para detectar falhas em ventiladores industriais através da análise de áudios. Baseado no dataset MIMII, o sistema extrai características MFCC dos sinais de áudio e classifica as condições como normais ou anômalas usando um modelo Random Forest.
 
+## 📋 Sumário
+
+- [Descrição do Problema](#-descrição-do-problema)
+- [Stack Tecnológica](#-stack-tecnológica)
+- [Estrutura do Projeto](#-estrutura-do-projeto)
+- [Instalação e Execução](#-instalação-e-execução)
+- [Resultados](#-resultados)
+- [Fundamentação Teórica](#-fundamentação-teórica)
+- [Avaliação e Métricas](#-avaliação-e-métricas)
+- [Conclusão](#-conclusão)
+- [Licença](#-licença)
+- [Referências](#-referências)
+
 ## 📋 Descrição do Problema
 
 Sistemas tradicionais de detecção de falhas em equipamentos industriais podem ser ineficientes, especialmente em ambientes ruidosos. Este projeto aborda a detecção precoce de anomalias em ventiladores industriais via análise de áudio, permitindo manutenção preditiva e redução de custos operacionais.
@@ -75,7 +88,7 @@ Certifique-se de ajustar os caminhos no código para o dataset.
 
 ## 📊 Resultados
 
-- **Acurácia:** ~95% (exemplo baseado em execução típica)
+- **Acurácia:** ~96% (exemplo baseado em execução típica)
 - **Métricas:** AUC-ROC, Matriz de Confusão
 - **Visualizações:** Curva ROC e Matriz de Confusão incluídas em `docs/`
 
@@ -121,7 +134,7 @@ A matriz de confusão acima mostra os resultados obtidos com o modelo. Foram fei
 
 A curva ROC apresentada indica a performance do modelo ao longo de diferentes limiares de decisão. O valor **AUC** (Área Sob a Curva) foi de **0.99653**, o que indica uma excelente performance do modelo na distinção entre áudios normais e anormais.
 
-## Conclusão
+## 📝 Conclusão
 
 O modelo Random Forest demonstrou eficácia na classificação de áudios normais e anormais de ventiladores industriais. Com uma acurácia de 96,49% e uma AUC de 0,99653, o modelo mostrou-se robusto. No entanto, melhorias futuras podem incluir o aumento de dados anômalos e a utilização de redes neurais convolucionais (CNNs) para uma análise mais profunda dos sinais.
 
