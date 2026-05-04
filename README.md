@@ -1,146 +1,105 @@
 # Fan Audio Fault Detection
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](#) [![License](https://img.shields.io/badge/license-MIT-blue)](#)
+<p align="center">
+  <img src="./assets/banner.svg" alt="Project Banner" width="100%" />
+</p>
+
+<p align="left">
+	<img src="https://img.shields.io/badge/Python-3.x-FFD700?style=for-the-badge&logo=python&logoColor=111111&labelColor=0B0B0B" alt="Python" />
+	<img src="https://img.shields.io/badge/Scikit_Learn-9F00FF?style=for-the-badge&logo=scikit-learn&logoColor=111111&labelColor=0B0B0B" alt="Scikit-Learn" />
+	<img src="https://img.shields.io/badge/Librosa-00FFF7?style=for-the-badge&logo=librosa&logoColor=111111&labelColor=0B0B0B" alt="Librosa" />
+	<img src="https://img.shields.io/badge/Status-Estável-FF00FF?style=for-the-badge&logoColor=111111&labelColor=0B0B0B" alt="Status" />
+</p>
 
 Este projeto utiliza aprendizado de máquina para detectar falhas em ventiladores industriais através da análise de áudios. Baseado no dataset MIMII, o sistema extrai características MFCC dos sinais de áudio e classifica as condições como normais ou anômalas usando um modelo Random Forest.
 
-## 📋 Sumário
+## [>] SYS.NAVEGAÇÃO
 
-- [Descrição do Problema](#-descrição-do-problema)
-- [Stack Tecnológica](#-stack-tecnológica)
-- [Estrutura do Projeto](#-estrutura-do-projeto)
-- [Instalação e Execução](#-instalação-e-execução)
-- [Resultados](#-resultados)
-- [Fundamentação Teórica](#-fundamentação-teórica)
-- [Avaliação e Métricas](#-avaliação-e-métricas)
-- [Conclusão](#-conclusão)
-- [Licença](#-licença)
-- [Referências](#-referências)
+[Descrição](#-descrição-do-problema) • [Stack](#-stack-tecnológica) • [Estrutura](#-estrutura-do-projeto) • [Execução](#-instalação-e-execução) • [Resultados](#-resultados) • [Teoria](#-fundamentação-teórica)
 
-## 📋 Descrição do Problema
+---
+
+## [~] SYS.DESCRIÇÃO_PROBLEMA
 
 Sistemas tradicionais de detecção de falhas em equipamentos industriais podem ser ineficientes, especialmente em ambientes ruidosos. Este projeto aborda a detecção precoce de anomalias em ventiladores industriais via análise de áudio, permitindo manutenção preditiva e redução de custos operacionais.
 
-## 🛠 Stack Tecnológica
+## [@] STACK_TECNOLÓGICA
 
 - **Linguagem:** Python 3.x
-- **Bibliotecas:** Librosa (extração de MFCC), Scikit-Learn (Random Forest), Pandas, NumPy, Matplotlib, Seaborn
-- **Dataset:** MIMII Dataset (subconjunto de ventiladores) - Fornecido por Purohit et al. (2019) sob licença Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).
+- **Processamento de Áudio:** Librosa (extração de MFCC)
+- **Machine Learning:** Scikit-Learn (Random Forest)
+- **Data Science:** Pandas, NumPy
+- **Visualização:** Matplotlib, Seaborn
+- **Dataset:** MIMII Dataset (subconjunto de ventiladores)
 
-## 📁 Estrutura do Projeto
+## [=] ESTRUTURA_PROJETO
 
 ```
 fan-audio-fault-detection/
+├── assets/               # HUDs e Banner Cyberpunk
 ├── data/                 # Diretório para datasets (MIMII)
 ├── models/               # Modelos treinados salvos
 ├── src/                  # Código fonte
-│   └── fan-audio-fault-detection.py
-├── docs/                 # Documentação e imagens
-│   ├── confusion_matrix.png
-│   └── roc_curve.png
-├── requirements.txt      # Dependências
-└── README.md             # Este arquivo
+│   └── main.py           # Script principal de treinamento e avaliação
+├── docs/                 # Documentação técnica
+├── requirements.txt      # Dependências do sistema
+└── README.md             # Documentação do sistema
 ```
 
 ### Estrutura Esperada do Dataset
 
 O dataset deve seguir a estrutura do MIMII:
+`data/fan/id_XX/normal|abnormal/*.wav`
 
-```
-data/
-├── fan/
-│   ├── id_00/
-│   │   ├── normal/
-│   │   └── abnormal/
-│   ├── id_02/
-│   │   ├── normal/
-│   │   └── abnormal/
-│   └── ...
-```
+---
 
-## 🚀 Instalação e Execução
+## [*] INSTALAÇÃO_E_EXECUÇÃO
 
-### Pré-requisitos
-- Python 3.7+
-- Git
-
-### Instalação
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/lucenfort/fan-audio-fault-detection.git
-   cd fan-audio-fault-detection
-   ```
-
-2. Instale as dependências:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. Baixe o dataset MIMII e coloque na pasta `data/`. O dataset está disponível em: [MIMII Dataset](https://zenodo.org/record/3384388)
-
-### Execução
-Execute o script principal:
+### 1. Clonar o sistema
 ```bash
-python src/fan-audio-fault-detection.py
+git clone https://github.com/lucenfort/fan-audio-fault-detection.git
+cd fan-audio-fault-detection
 ```
 
-Certifique-se de ajustar os caminhos no código para o dataset.
+### 2. Instalar dependências
+```bash
+pip install -r requirements.txt
+```
 
-## 📊 Resultados
+### 3. Preparar dados
+Baixe o [MIMII Dataset](https://zenodo.org/record/3384388) e coloque na pasta `data/`.
 
-- **Acurácia:** ~96% (exemplo baseado em execução típica)
-- **Métricas:** AUC-ROC, Matriz de Confusão
-- **Visualizações:** Curva ROC e Matriz de Confusão incluídas em `docs/`
+### 4. Executar pipeline
+```bash
+python src/main.py
+```
 
-## 🔬 Fundamentação Teórica
+---
+
+## [#] RESULTADOS_SISTEMA
+
+Após o treinamento, o modelo Random Forest alcançou os seguintes marcos de performance:
+
+- **Acurácia Global:** 96.49%
+- **AUC-ROC:** 0.9965
+
+<p align="center">
+  <img src="confusion_matrix.png" width="45%" alt="Matriz de Confusão" />
+  <img src="roc_curve.png" width="45%" alt="Curva ROC" />
+</p>
+
+---
+
+## [&] FUNDAMENTAÇÃO_TEÓRICA
 
 ### MFCC (Mel-frequency Cepstral Coefficients)
-Coeficientes que representam as características espectrais do áudio, essenciais para tarefas de classificação sonora (Davis & Mermelstein, 1980).
+Representação das características espectrais do áudio, simulando a percepção auditiva humana para tarefas de classificação sonora.
 
 ### Random Forest
-Algoritmo ensemble que combina múltiplas árvores de decisão para classificação robusta, reduzindo overfitting (Breiman, 2001).
+Algoritmo ensemble que combina múltiplas árvores de decisão para criar um classificador robusto e resistente a overfitting.
 
-### MIMII Dataset
-Dataset de sons industriais com condições normais e anômalas, usado para simular cenários reais de fábricas (Purohit et al., 2019).
+---
 
-## 📈 Avaliação e Métricas
-
-- **Precisão (Precision):** Mede a proporção de verdadeiros positivos.
-- **Recall:** Mede a capacidade de detectar anomalias.
-- **F1-Score:** Média harmônica de precisão e recall.
-- **AUC-ROC:** Área sob a curva ROC para avaliar a qualidade da classificação.
-
-Resultados típicos: F1-Score > 0.90, AUC > 0.95.
-
-Após o treinamento, obtivemos os seguintes resultados:
-
-#### Acurácia do Modelo
-
-- **Acurácia**: 0.96486
-
-#### Matriz de Confusão
-
-![Matriz de Confusão](confusion_matrix.png)
-
-A matriz de confusão acima mostra os resultados obtidos com o modelo. Foram feitas as seguintes observações:
-- **Verdadeiros Positivos (Normal)**: 809
-- **Falsos Negativos (Normal)**: 6
-- **Falsos Positivos (Anormal)**: 33
-- **Verdadeiros Negativos (Anormal)**: 262
-
-#### Curva ROC e AUC
-
-![Curva ROC](roc_curve.png)
-
-A curva ROC apresentada indica a performance do modelo ao longo de diferentes limiares de decisão. O valor **AUC** (Área Sob a Curva) foi de **0.99653**, o que indica uma excelente performance do modelo na distinção entre áudios normais e anormais.
-
-## 📝 Conclusão
-
-O modelo Random Forest demonstrou eficácia na classificação de áudios normais e anormais de ventiladores industriais. Com uma acurácia de 96,49% e uma AUC de 0,99653, o modelo mostrou-se robusto. No entanto, melhorias futuras podem incluir o aumento de dados anômalos e a utilização de redes neurais convolucionais (CNNs) para uma análise mais profunda dos sinais.
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT.
 
 ## 📚 Referências
 
