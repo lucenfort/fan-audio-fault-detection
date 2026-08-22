@@ -1,29 +1,193 @@
-<svg width="400" height="100" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 250" width="100%" height="100%">
   <defs>
-    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#FCE205" stroke-width="0.5" stroke-opacity="0.1" />
-    </pattern>
-    <filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
-  </defs>
-  <rect width="400" height="100" fill="#0D1117" />
-  <rect width="400" height="100" fill="url(#grid)" />
-  
-  <polygon points="0,0 20,0 30,10 30,100 0,100" fill="#FCE205" opacity="0.8" />
-  <polygon points="400,100 380,100 370,90 370,0 400,0" fill="#00F0FF" opacity="0.8" />
-  
-  <rect x="15" y="15" width="370" height="70" fill="none" stroke="#FCE205" stroke-width="1" opacity="0.3" />
-  
-  <g fill="#00F0FF" filter="url(#glowCyan)" transform="translate(45, 30)">
-    <rect x="0" y="15" width="4" height="10" />
-    <rect x="8" y="5" width="4" height="30" />
-    <rect x="16" y="10" width="4" height="20" />
-    <rect x="24" y="0" width="4" height="40" />
-    <rect x="32" y="12" width="4" height="16" />
-  </g>
+    <!-- Background Gradients -->
+    <linearGradient id="bgAudio" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080d1a" />
+      <stop offset="50%" stop-color="#10172a" />
+      <stop offset="100%" stop-color="#050811" />
+    </linearGradient>
 
-  <text x="100" y="45" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="900" fill="#FFFFFF" letter-spacing="1">AUDIO_FAULT_DETECT</text>
-  <text x="100" y="65" font-family="'Courier New', monospace" font-size="10" fill="#FCE205">SINAIS ACÚSTICOS // ML</text>
+    <linearGradient id="neonAudioGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F0FF" />
+      <stop offset="50%" stop-color="#FFD700" />
+      <stop offset="100%" stop-color="#FF007F" />
+    </linearGradient>
+
+    <linearGradient id="shimmerGrad" x1="-100%" y1="0%" x2="200%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Clip Path -->
+    <clipPath id="bannerClip">
+      <rect x="0" y="0" width="1000" height="250" rx="14" />
+    </clipPath>
+  </defs>
+
+  <style>
+    @keyframes pulseOrb {
+      0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.3; }
+      50% { transform: scale(1.15) translate(-8px, 6px); opacity: 0.6; }
+    }
+    @keyframes shimmerMove {
+      0% { transform: translateX(-300px); }
+      100% { transform: translateX(1000px); }
+    }
+    @keyframes eqBar1 { 0%, 100% { height: 18px; y: 92px; } 50% { height: 65px; y: 45px; } }
+    @keyframes eqBar2 { 0%, 100% { height: 50px; y: 60px; } 50% { height: 20px; y: 90px; } }
+    @keyframes eqBar3 { 0%, 100% { height: 30px; y: 80px; } 50% { height: 75px; y: 35px; } }
+    @keyframes eqBar4 { 0%, 100% { height: 60px; y: 50px; } 50% { height: 25px; y: 85px; } }
+    @keyframes eqBar5 { 0%, 100% { height: 40px; y: 70px; } 50% { height: 80px; y: 30px; } }
+    @keyframes waveSonic {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: -200; }
+    }
+
+    .orb-cyan { animation: pulseOrb 8s ease-in-out infinite; transform-origin: 150px 80px; }
+    .orb-gold { animation: pulseOrb 10s ease-in-out infinite reverse; transform-origin: 850px 150px; }
+    .shimmer-line { animation: shimmerMove 4s linear infinite; }
+
+    .bar-1 { animation: eqBar1 1.1s ease-in-out infinite; }
+    .bar-2 { animation: eqBar2 0.85s ease-in-out infinite; }
+    .bar-3 { animation: eqBar3 1.3s ease-in-out infinite; }
+    .bar-4 { animation: eqBar4 0.95s ease-in-out infinite; }
+    .bar-5 { animation: eqBar5 1.2s ease-in-out infinite; }
+    .sonic-wave { animation: waveSonic 6s linear infinite; }
+
+    .title-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Plus Jakarta Sans', Roboto, sans-serif; font-weight: 800; }
+    .body-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Plus Jakarta Sans', Roboto, sans-serif; font-weight: 400; }
+    .mono-text { font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Fira Code', monospace; }
+  </style>
+
+  <g clip-path="url(#bannerClip)">
+    <!-- Base Background -->
+    <rect x="0" y="0" width="1000" height="250" fill="url(#bgAudio)" />
+
+    <!-- Ambient Glowing Orbs -->
+    <circle cx="150" cy="70" r="140" fill="#00F0FF" opacity="0.2" class="orb-cyan" filter="url(#neonGlow)" />
+    <circle cx="850" cy="140" r="160" fill="#FFD700" opacity="0.16" class="orb-gold" filter="url(#neonGlow)" />
+    <circle cx="500" cy="30" r="100" fill="#FF007F" opacity="0.12" class="orb-cyan" filter="url(#neonGlow)" />
+
+    <!-- Technical Grid Pattern -->
+    <g opacity="0.06" stroke="#00F0FF" stroke-width="1">
+      <line x1="0" y1="50" x2="1000" y2="50" />
+      <line x1="0" y1="100" x2="1000" y2="100" />
+      <line x1="0" y1="150" x2="1000" y2="150" />
+      <line x1="0" y1="200" x2="1000" y2="200" />
+      <line x1="100" y1="0" x2="100" y2="250" />
+      <line x1="250" y1="0" x2="250" y2="250" />
+      <line x1="400" y1="0" x2="400" y2="250" />
+      <line x1="550" y1="0" x2="550" y2="250" />
+      <line x1="700" y1="0" x2="700" y2="250" />
+      <line x1="850" y1="0" x2="850" y2="250" />
+    </g>
+
+    <!-- Animated Audio Visualizer / Frequency Spectrum on Right -->
+    <g opacity="0.85" transform="translate(730, 20)">
+      <!-- Radial Acoustic Radar -->
+      <circle cx="140" cy="80" r="65" fill="none" stroke="#00F0FF" stroke-width="1" stroke-dasharray="4 4" opacity="0.3" />
+      <circle cx="140" cy="80" r="95" fill="none" stroke="#FFD700" stroke-width="1" stroke-dasharray="3 5" opacity="0.2" />
+
+      <!-- Equalizer Bars -->
+      <g filter="url(#softGlow)">
+        <rect x="50" y="92" width="7" height="18" rx="3.5" fill="#00F0FF" class="bar-1" />
+        <rect x="65" y="60" width="7" height="50" rx="3.5" fill="#00F0FF" class="bar-2" />
+        <rect x="80" y="80" width="7" height="30" rx="3.5" fill="#FFD700" class="bar-3" />
+        <rect x="95" y="50" width="7" height="60" rx="3.5" fill="#FFD700" class="bar-4" />
+        <rect x="110" y="70" width="7" height="40" rx="3.5" fill="#FF007F" class="bar-5" />
+        <rect x="125" y="60" width="7" height="50" rx="3.5" fill="#FF007F" class="bar-2" />
+        <rect x="140" y="92" width="7" height="18" rx="3.5" fill="#00F0FF" class="bar-3" />
+        <rect x="155" y="50" width="7" height="60" rx="3.5" fill="#00F0FF" class="bar-1" />
+        <rect x="170" y="80" width="7" height="30" rx="3.5" fill="#FFD700" class="bar-4" />
+        <rect x="185" y="70" width="7" height="40" rx="3.5" fill="#FF007F" class="bar-5" />
+        <rect x="200" y="60" width="7" height="50" rx="3.5" fill="#00F0FF" class="bar-2" />
+        <rect x="215" y="92" width="7" height="18" rx="3.5" fill="#FFD700" class="bar-1" />
+      </g>
+
+      <!-- Sine Waveform Overlay -->
+      <path d="M 30,80 Q 75,30 120,80 T 210,80 T 240,80" fill="none" stroke="#00F0FF" stroke-width="2" stroke-dasharray="6 4" class="sonic-wave" opacity="0.6" />
+    </g>
+
+    <!-- Top Glow Accent Line with Shimmer -->
+    <rect x="0" y="0" width="1000" height="3" fill="url(#neonAudioGrad)" />
+    <rect x="0" y="0" width="250" height="3" fill="url(#shimmerGrad)" class="shimmer-line" />
+
+    <!-- Top Badge / Header Tag -->
+    <g transform="translate(60, 36)">
+      <rect x="0" y="0" width="310" height="26" rx="13" fill="#13213b" stroke="#00F0FF" stroke-opacity="0.4" stroke-width="1" />
+      <circle cx="13" cy="13" r="4.5" fill="#00F0FF" filter="url(#softGlow)" />
+      <text x="26" y="17" fill="#E2E8F0" font-size="11" class="title-text" letter-spacing="1">
+        AUDIO DSP &amp; PREDICTIVE AI
+      </text>
+    </g>
+
+    <!-- Main Title: FAN AUDIO FAULT DETECTION -->
+    <g transform="translate(60, 108)">
+      <!-- Sound Wave / Mic Icon -->
+      <g transform="translate(0, -32) scale(0.95)">
+        <path d="M12 8 L12 24 M18 4 L18 28 M24 10 L24 22 M6 12 L6 20 M30 12 L30 20" 
+              fill="none" stroke="#00F0FF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#softGlow)"/>
+      </g>
+      
+      <text x="50" y="5" fill="#FFFFFF" font-size="40" class="title-text" letter-spacing="1.5">
+        FAN AUDIO FAULT
+      </text>
+      <text x="495" y="5" fill="#00F0FF" font-size="40" class="title-text" letter-spacing="1.5" filter="url(#softGlow)">
+        DETECTION
+      </text>
+    </g>
+
+    <!-- Subtitle -->
+    <text x="60" y="148" fill="#94A3B8" font-size="15" class="body-text" letter-spacing="0.5">
+      Diagnóstico de Anomalias Industriais via Processamento de Sinais e Random Forest (MIMII)
+    </text>
+
+    <!-- Bottom Status Badges Row -->
+    <g transform="translate(60, 180)">
+      <rect x="0" y="0" width="700" height="34" rx="8" fill="#0c1527" stroke="#1c2d4a" stroke-width="1" opacity="0.9" />
+      
+      <!-- Feature Pills -->
+      <g transform="translate(20, 21)">
+        <circle cx="0" cy="-3" r="4" fill="#00F0FF" />
+        <text x="10" y="1" fill="#CBD5E1" font-size="11.5" class="title-text">Python 3.x</text>
+      </g>
+      
+      <g transform="translate(135, 21)">
+        <circle cx="0" cy="-3" r="4" fill="#FF007F" />
+        <text x="10" y="1" fill="#CBD5E1" font-size="11.5" class="title-text">Librosa (MFCC DSP)</text>
+      </g>
+
+      <g transform="translate(300, 21)">
+        <circle cx="0" cy="-3" r="4" fill="#FFD700" />
+        <text x="10" y="1" fill="#CBD5E1" font-size="11.5" class="title-text">Random Forest Classifier</text>
+      </g>
+
+      <g transform="translate(500, 21)">
+        <circle cx="0" cy="-3" r="4" fill="#10B981" />
+        <text x="10" y="1" fill="#CBD5E1" font-size="11.5" class="title-text">AUC-ROC 0.9965 (96.5% Acc)</text>
+      </g>
+    </g>
+
+    <!-- Subtle Border Around Banner -->
+    <rect x="0" y="0" width="1000" height="250" rx="14" fill="none" stroke="#00F0FF" stroke-width="1.5" stroke-opacity="0.4" />
+  </g>
 </svg>
